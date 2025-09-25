@@ -1,5 +1,4 @@
 import pytest
-from datetime import date
 from Container import Container
 from Model.Cat import Cat
 from Model.Dog import Dog
@@ -122,7 +121,7 @@ class TestContainer:
         assert len(populated_container.list_object) == 0
 
     def test_print_method(self, populated_container, capsys):
-        """Тест что метод print не вызывает ошибок"""
+        """Тест, что метод print не вызывает ошибок"""
         populated_container.print()
         captured = capsys.readouterr()
         assert "Animal:" in captured.out
