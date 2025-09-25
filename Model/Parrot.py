@@ -23,6 +23,8 @@ class Parrot(HomeAnimal.HomeAnimal):
     def type_parrot(self, value):
         if not isinstance(value, str):
             raise TypeError(f"Вид должен быть строкой, получено {type(value).__name__}")
+        if not value.strip():
+            raise ValueError(f"Вид не может быть пустой строчкой {type(value).__name__}")
         self._type_parrot = value
 
     @property
