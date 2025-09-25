@@ -24,7 +24,7 @@ def controller_command(split_data: list) -> None:
         obj = create_object(split_data[1])
         container.add(obj)
     elif command == LIST_COMMAND[1]:
-        json_data = convert_strJSON_in_JSON(split_data[1])
+        json_data = convert_str_json_in_json(split_data[1])
         container.deleted_with_condition(json_data["value"], json_data["operator"], json_data["target"])
     elif command == LIST_COMMAND[2]:
         container.print()
@@ -33,7 +33,7 @@ def controller_command(split_data: list) -> None:
 
 
 def create_object(json_string):
-    json_data = convert_strJSON_in_JSON(json_string)
+    json_data = convert_str_json_in_json(json_string)
     try:
         animal = json_data["animal"].lower()
     except KeyError:
@@ -48,14 +48,18 @@ def create_object(json_string):
     elif animal == LIST_ANIMAL[2]:
         object_ = Parrot.Parrot(json_data)
         return object_
+    else:
+        raise ValueError(f"Unknown animal type: {animal}")
 
 
-def convert_strJSON_in_JSON(json_string):
+def convert_str_json_in_json(json_string):
     try:
         json_data = json.loads(json_string)
         return json_data
     except json.JSONDecodeError:
         raise TypeError("Объект невозможно преобразовать в JSON")
+
+
 def file_read_and_clear(file_path):
     counter_line = 0
     try:
@@ -70,7 +74,7 @@ def file_read_and_clear(file_path):
                     for index, par in enumerate(split_data):
                         split_data[index] = par.strip()
                     controller_command(split_data)
-                except Exception as ex:
+                except Exception:
                     error_msg = f"Ошибка в строке {counter_line}: {line}"
                     print(f"❌ {error_msg}")
                     raise
@@ -87,7 +91,7 @@ def waiting_dots_until_keypress():
     face_index = 0
     key_pressed = False
 
-    def on_key_press(event):
+    def on_key_press():
         nonlocal key_pressed
         key_pressed = True
 
@@ -148,4 +152,3 @@ if __name__ == '__main__':
             waiting_dots_until_keypress()
         else:
             print("Пожалуйста, введите 'Да' или 'Нет'")
-
