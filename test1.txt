@@ -1,0 +1,8 @@
+CLEAR
+
+ADD {"animal": "Cat", "breed": "Британец", "age": 5, "coat_color": "Серый", "name": "A1", "DateLastVet": "11.09.2025"}
+ADD {"animal": "Dog", "breed": "Алабай", "age": 4, "weight": 34, "name": "A1", "DateLastVet": "10.09.2025"}
+ADD {"animal": "Parrot", "type_parrot": "Пернатый", "wingspan": 5.5, "name": "A1", "DateLastVet": "09.09.2025"}
+ADD {"animal": "Cat", "breed": "Сибирский", "age": 7, "coat_color": "Рыжий", "name": "A1", "DateLastVet": "08.09.2025"}
+
+PRINT

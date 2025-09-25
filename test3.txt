@@ -1,0 +1,11 @@
+CLEAR
+
+ADD {"animal": "Cat", "breed": "Британец", "age": 5, "coat_color": "Серый"}
+ADD {"animal": "Dog", "breed": "Алабай", "age": 4, "weight": 34}
+ADD {"animal": "Parrot", "type_parrot": "Пернатый", "wingspan": 5.5}
+AD {"animal": "Cat", "breed": "Мейн-кун", "age": 2, "coat_color": "Светло-серый", "coat_color": "Светло-серый"}
+
+
+REM {"value": "age","operator": ">" , "target": 4}
+
+PRINT
