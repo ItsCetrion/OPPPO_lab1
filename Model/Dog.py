@@ -49,6 +49,8 @@ class Dog(HomeAnimal.HomeAnimal):
     def breed(self, value):
         if not isinstance(value, str):
             raise TypeError(f"Порода должна быть строкой, получено {type(value).__name__}")
+        if not value.strip():
+            raise ValueError(f"Порода не может быть пустой строчкой {type(value).__name__}")
         self._breed = value
 
     def __hash__(self):
