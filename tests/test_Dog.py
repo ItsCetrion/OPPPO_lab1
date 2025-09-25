@@ -3,7 +3,7 @@ import pytest
 
 
 class TestDogValidation:
-    """Группировка тестов для класса Cat"""
+    """Группировка тестов для класса Dog"""
 
     # Позитивный тест
     def test_valid_cat_creation(self):
@@ -12,7 +12,6 @@ class TestDogValidation:
         assert dog.breed == "Алабай"
         assert dog.age == 4
 
-    # Параметризованные тесты для TypeError
     @pytest.mark.parametrize("field,invalid_value", [
         ("breed", 5),
         ("age", "5"),
@@ -28,7 +27,6 @@ class TestDogValidation:
         with pytest.raises(TypeError):
             Dog(base_data)
 
-    # Параметризованные тесты для ValueError
     @pytest.mark.parametrize("field,invalid_value", [
         ("breed", ""),
         ("age", -5),
@@ -45,7 +43,6 @@ class TestDogValidation:
         with pytest.raises(ValueError):
             Dog(base_data)
 
-    # Тесты на отсутствующие ключи
     @pytest.mark.parametrize("missing_key", ["breed", "age", "weight", "name", "DateLastVet"])
     def test_missing_keys(self, missing_key):
         base_data = {"animal": "Dog", "breed": "Алабай", "age": 4,

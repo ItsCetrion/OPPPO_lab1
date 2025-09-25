@@ -5,7 +5,6 @@ import pytest
 class TestCatValidation:
     """Группировка тестов для класса Cat"""
 
-    # Позитивный тест
     def test_valid_cat_creation(self):
         dict_ = {"animal": "Cat", "breed": "Британец", "age": 5,
                  "coat_color": "Серый", "name": "A1", "DateLastVet": "11.09.2025"}
@@ -13,7 +12,6 @@ class TestCatValidation:
         assert cat.breed == "Британец"
         assert cat.age == 5
 
-    # Параметризованные тесты для TypeError
     @pytest.mark.parametrize("field,invalid_value", [
         ("breed", 5),
         ("age", "5"),
@@ -29,7 +27,6 @@ class TestCatValidation:
         with pytest.raises(TypeError):
             Cat(base_data)
 
-    # Параметризованные тесты для ValueError
     @pytest.mark.parametrize("field,invalid_value", [
         ("breed", ""),
         ("age", -5),
@@ -46,7 +43,6 @@ class TestCatValidation:
         with pytest.raises(ValueError):
             Cat(base_data)
 
-    # Тесты на отсутствующие ключи
     @pytest.mark.parametrize("missing_key", ["breed", "age", "coat_color", "name", "DateLastVet"])
     def test_missing_keys(self, missing_key):
         base_data = {"animal": "Cat", "breed": "Британец", "age": 5,
