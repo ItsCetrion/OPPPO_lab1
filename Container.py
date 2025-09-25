@@ -13,7 +13,8 @@ class Container:
                     buffer_list_object.append(obj)
         self.__list_object = self.__xor_lists_by_id(buffer_list_object)
 
-    def __comparison(self, data, relationship, target):
+    @staticmethod
+    def __comparison(data, relationship, target):
         if relationship == ">=":
             return data >= target
         elif relationship == "<=":

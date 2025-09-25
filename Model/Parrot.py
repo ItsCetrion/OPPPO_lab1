@@ -3,7 +3,7 @@ from Model import HomeAnimal
 
 class Parrot(HomeAnimal.HomeAnimal):
     def __init__(self, json_data):
-        super().__init__()
+        super().__init__(json_data)
         self._type_parrot = ""
         self._wingspan = 1
         self.__converting_json_to_object(json_data)

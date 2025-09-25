@@ -3,7 +3,7 @@ from Model import HomeAnimal
 
 class Cat(HomeAnimal.HomeAnimal):
     def __init__(self, json_data):
-        super().__init__()
+        super().__init__(json_data)
         self._breed = ""
         self._age = 0
         self._coat_color = ""
