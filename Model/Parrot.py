@@ -38,4 +38,4 @@ class Parrot(HomeAnimal.HomeAnimal):
         self._wingspan = value
 
     def __hash__(self):
-        return hash((self._type_parrot, self._wingspan))
+        return hash((self._type_parrot, self._wingspan, self.name, self.date_last_veterinarian))

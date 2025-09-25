@@ -1,3 +1,7 @@
+from datetime import date, datetime
+from Checker import Checker
+
+
 class Container:
     def __init__(self):
         self.__list_object = list()
@@ -7,6 +11,9 @@ class Container:
 
     def deleted_with_condition(self, value, relationship, target):
         buffer_list_object = []
+        if value == "DateLastVet":
+            Checker.check_date_str(target)
+            target = datetime.strptime(target, '%d.%m.%Y').date()
         for obj in self.__list_object:
             for field, data in vars(obj).items():
                 if field.lstrip("_") == value and self.__comparison(data, relationship, target):

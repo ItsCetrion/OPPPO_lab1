@@ -52,4 +52,4 @@ class Dog(HomeAnimal.HomeAnimal):
         self._breed = value
 
     def __hash__(self):
-        return hash((self._breed, self._age, self._weight))
+        return hash((self._breed, self._age, self._weight, self.name, self.date_last_veterinarian))
