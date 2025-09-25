@@ -51,3 +51,10 @@ class Container:
 
     def clear(self):
         self.__list_object.clear()
+
+    def count_obj(self):
+        return len(self.__list_object)
+
+    @property
+    def list_object(self):
+        return self.__list_object
