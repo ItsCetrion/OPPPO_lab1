@@ -37,6 +37,8 @@ class Cat(HomeAnimal.HomeAnimal):
     def coat_color(self, value):
         if not isinstance(value, str):
             raise TypeError(f"Цвет шерсти должен быть строкой, получено {type(value).__name__}")
+        if not value.strip():
+            raise ValueError(f"Цвет шерсти не может быть пустой строчкой {type(value).__name__}")
         self._coat_color = value
 
     @property
@@ -47,6 +49,8 @@ class Cat(HomeAnimal.HomeAnimal):
     def breed(self, value):
         if not isinstance(value, str):
             raise TypeError(f"Порода должна быть строкой, получено {type(value).__name__}")
+        if not value.strip():
+            raise ValueError(f"Порода не может быть пустой строчкой {type(value).__name__}")
         self._breed = value
 
     def __hash__(self):
